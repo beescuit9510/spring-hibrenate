@@ -17,4 +17,12 @@ public class SwimmingCoach implements Coach{
     public String getDailyFortune() {
         return fortuneService.getFortune();
     }
+
+    public void doMyStartupStuff(){
+        System.out.println("SwimmingCoach: inside method doMyStartupStuff");
+    };
+    public void doMyCleanupStuffYoYo(){
+        System.out.println("SwimmingCoach: inside method doMyCleanupStuffYoYo");
+    };
+
 }
