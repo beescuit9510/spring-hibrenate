@@ -7,9 +7,6 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- load the properties file sport.properties -->
-    <context:property-placeholder location="sport.properties" />
-
     <!-- Define your beans here -->
     <bean id="myFortuneService"
           class="com.luv2code.springdemo.HappyFortuneService">
