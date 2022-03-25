@@ -20,4 +20,16 @@ public class TrackCoach implements Coach {
     public String getDailyFortune() {
         return "Just Do It: "+fortuneService.getFortune();
     }
+
+    //  add an init method
+    // can have any return type, any method name, any access modifier (public, protected, private)
+    // but cannot have any args, it has to be no-args method
+    public void doMyStartupStuff(){
+        System.out.println("TrackCoach: inside method doMyStartupStuff");
+    };
+
+    // add a destroy method
+    public void doMyCleanupStuffYoYo(){
+        System.out.println("TrackCoach: inside method doMyCleanupStuffYoYo");
+    };
 }
