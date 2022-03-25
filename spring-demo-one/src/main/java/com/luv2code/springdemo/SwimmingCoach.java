@@ -6,4 +6,9 @@ public class SwimmingCoach implements Coach{
     public String getDailyWorkout() {
         return "Swimming 30 minutes every morning";
     }
+
+    @Override
+    public String getDailyFortune() {
+        return null;
+    }
 }
