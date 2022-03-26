@@ -2,7 +2,8 @@ package com.luv2code.springdemo;
 
 import org.springframework.stereotype.Component;
 
-@Component("thatSillyCoach")
+//@Component("thatSillyCoach") //explicit component names
+@Component //default component names
 public class TennisCoach implements Coach{
 
      @Override
