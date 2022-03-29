@@ -3,7 +3,7 @@ package com.luv2code.springdemo;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class SwimJavaSConfigDemoApp {
-    public static void main(String[] args) {n
+    public static void main(String[] args) {
 
         //read spring config java class
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SportConfig.class);
