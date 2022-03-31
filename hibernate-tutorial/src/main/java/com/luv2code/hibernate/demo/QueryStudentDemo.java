@@ -18,44 +18,36 @@ public class QueryStudentDemo {
 
         // create session
         Session session = factory.getCurrentSession();
-        try {
 
-            // start a transaction
+        try {
+            int studentId = 1;
+
+            // get a new session and start transation
+            session = factory.getCurrentSession();
             session.beginTransaction();
 
-            // query students
-            // above HIBERNATE 5.2 should use getResultList() instead of list()
-            List<Student> students = session.createQuery("from Student").list();
+            //get student based on the id : primary key
+            System.out.println("\nGetting student with id: "+studentId);
 
-            displayStudent(students);
+            Student student = (Student) session.get(Student.class, studentId);
 
-
-            // query students: lastName='madrigal'
-            // use the Java class and property names not a table and column names
-            students = session.createQuery("from Student s where s.lastName='madrigal'").list();
-
-            System.out.println("\n\nStudents who have last name of madrigal");
-            displayStudent(students);
-
-            // query students: firstName='Camilo' or firstName='dolores'
-            students = session
-                    .createQuery("from Student s where s.firstName='Camilo' OR s.firstName = 'dolores' ")
-                    .list();
-
-            System.out.println("\n\nStudents who have first name of 'Camilo' or 'dolores");
-            displayStudent(students);
-
-            // query students: where email Like 'madrigal@%''
-            students = session
-                    .createQuery("from Student s where s.email Like '%@gmail.com' ")
-                    .list();
-
-            System.out.println("\n\nStudents whose email ends with '@gmail.com");
-            displayStudent(students);
-
+            System.out.println("Updating students...");
+            student.setFirstName("antonio");
 
             // commit transaction
             session.getTransaction().commit();
+
+
+            session = factory.getCurrentSession();
+            session.beginTransaction();
+
+            System.out.println("Update firstName for all students");
+
+            session.createQuery("update Student set lastName='Madrigal'")
+                    .executeUpdate();
+
+            session.getTransaction().commit();
+
 
             System.out.println("Done!");
         }finally {
